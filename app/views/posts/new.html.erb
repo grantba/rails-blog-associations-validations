@@ -3,3 +3,17 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', posts_path %>
+
+<%= form_for @post do |f| %>
+<br>
+    <%= f.label :name, "Post Name" %>
+    <%= f.text_field :name %><br><br>
+
+    <%= f.label :content, "Post Content" %>
+    <%= f.text_area :content %><br><br>
+
+    <%= f.label :tags, "You can select an already existing tag for your post:" %><br><br>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br><br>
+        
+    <br><%= f.submit "Create Post" %>
+<% end %>

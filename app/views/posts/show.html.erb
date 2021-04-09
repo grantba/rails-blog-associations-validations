@@ -2,8 +2,13 @@
 
 <p>
   <h3>Name:</h3>
-  <%= @post.name %>
-</p>
+  <%= @post.name %><br>
+  <%= @post.content %><br>
+  </p>
+  <% @post.tags.each do |tag| %>
+    <p><%= tag.name %></p><br>
+    <% end %>
+
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
